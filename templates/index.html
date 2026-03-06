@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caregiver AI Assistant</title>
+    <meta name="description" content="AI-powered assistant for caregivers with multilingual support and voice capabilities">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>Caregiver AI</h2>
+                    <p>Your helpful partner</p>
+                </div>
+            </div>
+            
+            <div class="tips">
+                <h3><i class="fas fa-lightbulb"></i> Quick Tips</h3>
+                <ul>
+                    <li>Ask about daily care routines</li>
+                    <li>Share symptoms or behavior changes</li>
+                    <li>Try voice messages for hands-free use</li>
+                    <li>Supports Arabic and English</li>
+                </ul>
+                
+                <div class="system-status">
+                    <h4>System Status</h4>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <span>Ollama</span>
+                            <span class="status-indicator" id="ollama-status">● Checking...</span>
+                        </div>
+                        <div class="status-item">
+                            <span>Vector DB</span>
+                            <span class="status-indicator" id="vectordb-status">● Checking...</span>
+                        </div>
+                        <div class="status-item">
+                            <span>Audio</span>
+                            <span class="status-indicator" id="audio-status">● Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-panel">
+            <!-- Header -->
+            <header class="chat-header">
+                <h1>Caregiver AI Assistant</h1>
+                <p>Your expert partner in providing care</p>
+            </header>
+
+            <!-- Chat Messages -->
+            <div class="chat-box" id="chat-box">
+                <!-- Welcome Message -->
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        <p>Hello! How can I assist you with caregiving today?</p>
+                        <!-- Change: Updated the Arabic welcome message to Egyptian dialect -->
+                        <p dir="rtl">أهلاً بيك! إزاي أقدر أساعدك في تقديم الرعاية النهاردة؟</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Controls -->
+            <div class="scroll-controls">
+                <button class="scroll-btn" id="scroll-up" title="Scroll up">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="scroll-btn" id="scroll-down" title="Scroll to bottom">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <!-- Chat Input -->
+            <footer class="chat-footer">
+                <form id="chat-form">
+                    <div class="input-group">
+                        <!-- Text Input -->
+                        <textarea 
+                            id="user-input" 
+                            placeholder="Ask your question..."
+                            rows="1"
+                            aria-label="Type your message"
+                        ></textarea>
+                        
+                        <!-- Recording Indicator (Hidden by default) -->
+                        <div id="recording-indicator" style="display: none;">
+                            <div class="mic-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="text">Recording voice message...</div>
+                            <div class="waveform">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Voice Record Button -->
+                        <button 
+                            type="button" 
+                            id="record-btn" 
+                            title="Record voice message"
+                            aria-label="Record voice message"
+                        >
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        
+                        <!-- Send Button -->
+                        <button 
+                            type="submit" 
+                            id="send-btn" 
+                            title="Send message"
+                            aria-label="Send message"
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
